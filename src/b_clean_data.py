@@ -4,6 +4,8 @@ Se eliminan todas las observaciones con pérdidas en cualquiera de las variables
 """
 import pandas as pd
 
+import a_load_data
+
 
 def clean_mcar(df: pd.DataFrame) -> pd.DataFrame:
     """Elimina filas con any valor nulo. Reporta el texto del antes/después."""
@@ -16,7 +18,7 @@ def clean_mcar(df: pd.DataFrame) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    from load_data import load_data
+    from a_load_data import load_data
 
     data = load_data("Base_deficit_y_muertos_112017_conesposos.dta")
     data = clean_mcar(data)

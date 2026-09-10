@@ -10,9 +10,9 @@ from sklearn.metrics import (
     recall_score
 )
 
-from load_data import load_data
-from clean_data import clean_mcar
-from preprocess import split_scale
+from a_load_data import load_data
+from b_clean_data import clean_mcar
+from c_preprocess import split_scale
 
 
 # Cargar y preparar los datos
@@ -42,8 +42,12 @@ modelo_sensitividad = KNeighborsClassifier(
 
 modelo_sensitividad.fit(X_train, y_train)
 
-pred_sensitividad = modelo_sensitividad.predict(X_test)
-
+# pred_sensitividad = modelo_sensitividad.predict(X_test)
+# Arriba se comenta y se sustitue por las líneas de abajo 
+# para evitar falsos negativos
+# Bajar el umbral de decisión al 20% para favorecer Falsos Positivos
+probabilidades = modelo_sensitividad.predict_proba(X_test)[:, 1]
+pred_sensitividad = (probabilidades >= 0.20).astype(int)
 
 # Métricas
 precision_k29 = precision_score(
@@ -146,3 +150,6 @@ plt.ylabel("Valor de la métrica")
 plt.title("Comparación de modelos KNN")
 plt.legend()
 plt.show()
+
+
+print(" Se concluye que el modelo K=5 es mejor pues prioriza los Falsos positivos a los Falsos Negativos")

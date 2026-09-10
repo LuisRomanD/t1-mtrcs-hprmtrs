@@ -1,8 +1,20 @@
 # Clasificador KNN — Fragilidad en adultos mayores (UNAM)
 
+## Integrantes:
+
+- Clemente Pérez José Arturo
+
+- Ortega Ibarra Ana Paola
+
+- Román Durón Luis Carlos 
+
 Método supervisado basado en distancias (KNN) sobre una muestra longitudinal
 2012–2015 para predecir mortalidad en adultos mayores a partir de 35 déficits
 (variables binarias de fragilidad).
+
+## Repositorio del Proyecto
+
+(https://github.com/LuisRomanD/t1-mtrcs-hprmtrs.git)
 
 ## Datos
 

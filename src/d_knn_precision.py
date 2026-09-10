@@ -12,9 +12,9 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import precision_score
 
 
-from load_data import load_data
-from clean_data import clean_mcar
-from preprocess import split_scale
+from a_load_data import load_data
+from b_clean_data import clean_mcar
+from c_preprocess import split_scale
 
 def best_knn_precision(X_train, y_train):
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     data = clean_mcar(load_data("Base_deficit_y_muertos_112017_conesposos.dta"))
     X_train, X_test, y_train, y_test, scaler = split_scale(data)
 
-    print("Barriendo de K con Cross Validation")
+    print("Barriendo de K con Cross Validation, esto puede tardar unos segundos...")
     grid = best_knn_precision(X_train, y_train)
 
     best_k = grid.best_params_['n_neighbors']

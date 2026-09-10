@@ -4,9 +4,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import recall_score
 
-from load_data import load_data
-from clean_data import clean_mcar
-from preprocess import split_scale
+from a_load_data import load_data
+from b_clean_data import clean_mcar
+from c_preprocess import split_scale
 
 
 def best_knn_sensitividad(X_train, y_train):
